@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Principais elementos da sintaxe Markdown Fonte: http://daringfireball.net/projects/markdown/syntax Excertos e tradução: @hilam ELEMENTOS DE BLOCO PARÁGRAFOS E QUEBRAS DE LINHA Um parágrafo é ...">
+        <meta name="description" content="Principais elementos da sintaxe Markdown Fonte: http://daringfireball.net/projects/markdown/syntax Excertos e tradução: @hilam ELEMENTOS DE BLOCO PARÁGRAFOS E QUEBRAS DE LINHA Um parágrafo é...">
         <meta name="keywords" content="blog, markdown, pug-pb, tutorial">
         <link rel="icon" href="./favicon.ico">
 
@@ -41,10 +41,6 @@
                     <div class="nav pull-right">
                                 <a href="./">Homepage</a>
                                 <a href="./categories.html">Categorias</a>
-                            <a  href="./pages/aprendendo.html">Aprendendo</a>
-                            <a  href="./pages/participando.html">Participar do PUG/PB</a>
-                            <a  href="./pages/praticando.html">Praticando</a>
-                            <a  href="./pages/about.html">Sobre PUG/PB</a>
                     </div>
                 </div>
             </div>
@@ -166,14 +162,14 @@ o caractere &gt; para dicionar níveis:</p>
 </blockquote>
 <p>Citações podem conter outros elementos Markdown elements, incluindo cabeçalhos,
  listas, e blocos de código:</p>
-<div class="highlight"><pre><span></span><span class="x">&gt; </span><span class="cp">##</span><span class="c"> Cabeçalho H2</span><span class="x"></span>
-<span class="x">&gt;</span>
-<span class="x">&gt; 1.   Primeiro item da lista.</span>
-<span class="x">&gt; 2.   Segundo item.</span>
-<span class="x">&gt;</span>
-<span class="x">&gt; Um exemplo com código:</span>
-<span class="x">&gt;</span>
-<span class="x">&gt;     return shell_exec(&quot;echo </span><span class="p">$</span><span class="nv">input</span><span class="x"> | </span><span class="p">$</span><span class="nv">markdown_script</span><span class="x">&quot;);</span>
+<div class="highlight"><pre><span></span>&gt; ## Cabeçalho H2
+&gt;
+&gt; 1.   Primeiro item da lista.
+&gt; 2.   Segundo item.
+&gt;
+&gt; Um exemplo com código:
+&gt;
+&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
 </pre></div>
 
 
@@ -184,7 +180,7 @@ o caractere &gt; para dicionar níveis:</p>
 <li>Segundo item.</li>
 </ol>
 <p>Um exemplo com código:</p>
-<div class="highlight"><pre><span></span><span class="x">return shell_exec(&quot;echo </span><span class="p">$</span><span class="nv">input</span><span class="x"> | </span><span class="p">$</span><span class="nv">markdown_script</span><span class="x">&quot;);</span>
+<div class="highlight"><pre><span></span>return shell_exec(&quot;echo $input | $markdown_script&quot;);
 </pre></div>
 
 
@@ -369,11 +365,11 @@ asteriscos ou sublinhados numa linha.</p>
 </pre></div>
 
 
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 <h4>LINKS</h4>
 <p>Markdown suporta dois estilos de links: inline e reference.</p>
 <p>Em ambos, o texto do link é delimitado por [colchetes].</p>
@@ -446,15 +442,15 @@ __dois sublinhados__
 </pre></div>
 
 
-<p><img alt="Alt text" src="/path/to/img.jpg" /></p>
-<p><img alt="Alt text" src="/path/to/img.jpg" title="Optional title" /></p>
+<p><img alt="Alt text" src="/path/to/img.jpg"></p>
+<p><img alt="Alt text" src="/path/to/img.jpg" title="Optional title"></p>
 <div class="highlight"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">][</span><span class="kt">id</span><span class="p">]</span>
 
 <span class="p">[</span><span class="kt">id</span><span class="p">]</span><span class="o">:</span> <span class="n">url</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span>  <span class="s">&quot;Optional title attribute&quot;</span>
 </pre></div>
 
 
-<p><img alt="Alt text" src="url/to/image" title="Optional title attribute" /></p>
+<p><img alt="Alt text" src="url/to/image" title="Optional title attribute"></p>
 <h4>LINKS AUTOMÁTICOS</h4>
 <div class="highlight"><pre><span></span>&lt;http://example.com/&gt;
 </pre></div>

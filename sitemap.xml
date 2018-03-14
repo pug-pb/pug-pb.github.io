@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://pug-pb.github.io/</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>http://pug-pb.github.io/archives.html</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>http://pug-pb.github.io/comunidade</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>http://pug-pb.github.io/index</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>http://pug-pb.github.io/membros</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>http://pug-pb.github.io/projetos</loc>
-<lastmod>2018-03-14T19:43:56-00:00</lastmod>
+<lastmod>2018-03-14T20:42:39-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -123,42 +123,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://pug-pb.github.io/blog/tags/comic</loc>
-<lastmod>2016-10-30T13:00:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>http://pug-pb.github.io/blog/tags/pythonic</loc>
-<lastmod>2016-10-28T10:00:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>http://pug-pb.github.io/blog/tags/pug-pb</loc>
+<loc>http://pug-pb.github.io/blog/tags/blog</loc>
 <lastmod>2017-12-02T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
-<loc>http://pug-pb.github.io/blog/tags/organization</loc>
-<lastmod>2017-10-28T15:40:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>http://pug-pb.github.io/blog/tags/zen</loc>
-<lastmod>2016-10-28T10:00:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>http://pug-pb.github.io/blog/tags/python</loc>
+<loc>http://pug-pb.github.io/blog/tags/comic</loc>
 <lastmod>2016-10-30T13:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
@@ -172,6 +144,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://pug-pb.github.io/blog/tags/zen</loc>
+<lastmod>2016-10-28T10:00:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
+<loc>http://pug-pb.github.io/blog/tags/fun</loc>
+<lastmod>2016-10-30T13:00:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
+<loc>http://pug-pb.github.io/blog/tags/organization</loc>
+<lastmod>2017-10-28T15:40:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
 <loc>http://pug-pb.github.io/blog/tags/evento</loc>
 <lastmod>2017-12-02T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
@@ -179,14 +172,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://pug-pb.github.io/blog/tags/blog</loc>
+<loc>http://pug-pb.github.io/blog/tags/pug-pb</loc>
 <lastmod>2017-12-02T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
-<loc>http://pug-pb.github.io/blog/tags/fun</loc>
+<loc>http://pug-pb.github.io/blog/tags/pythonic</loc>
+<lastmod>2016-10-28T10:00:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
+<loc>http://pug-pb.github.io/blog/tags/python</loc>
 <lastmod>2016-10-30T13:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>

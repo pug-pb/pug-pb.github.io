@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PUG-PB</title><link href="http://pug-pb.github.io/" rel="alternate"></link><link href="http://pug-pb.github.io/feeds/all.atom.xml" rel="self"></link><id>http://pug-pb.github.io/</id><updated>2017-12-02T15:00:00-03:00</updated><entry><title>MeetUp Virtual BDD Django</title><link href="http://pug-pb.github.io/blog/meetup-virtual-bdd-django" rel="alternate"></link><published>2017-12-02T15:00:00-03:00</published><updated>2017-12-02T15:00:00-03:00</updated><author><name>Fernando Júnior</name></author><id>tag:pug-pb.github.io,2017-12-02:/blog/meetup-virtual-bdd-django</id><summary type="html">&lt;p&gt;PUG-PB promove meetup virtual&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h2&gt;MeetUp Virtual BDD Django&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PUG-PB</title><link href="https://pb.python.org.br/" rel="alternate"></link><link href="https://pb.python.org.br/feeds/all.atom.xml" rel="self"></link><id>https://pb.python.org.br/</id><updated>2018-11-30T10:00:00-03:00</updated><entry><title>Como Publicar Neste Blog</title><link href="https://pb.python.org.br/blog/como-publicar" rel="alternate"></link><published>2018-11-30T10:00:00-03:00</published><updated>2018-11-30T10:00:00-03:00</updated><author><name>Hildeberto</name></author><id>tag:pb.python.org.br,2018-11-30:/blog/como-publicar</id><summary type="html">&lt;p&gt;Veja como é fácil contribuir com conteúdo para nosso Blog&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Este blog é aberto à colaboração e qualquer membro da comunidade pode produzir conteúdo e enviar para que seja publicado aqui. Uma vez que o material não viole o &lt;a href="/blog/cdc"&gt;Código de Conduta da Comunidade&lt;/a&gt;, a solicitação será processada por um dos membros da equipe do GitHub. Mostraremos a seguir como proceder para ter seu conteúdo publicado aqui.&lt;/p&gt;
+&lt;h3&gt;O Que é o Pelican&lt;/h3&gt;
+&lt;p&gt;Veremos um tutorial para aqueles que desconhecem o &lt;a href="https://docs.getpelican.com/en/stable/"&gt;Pelican&lt;/a&gt;. Mostraremos como criar o &lt;strong&gt;virtual env&lt;/strong&gt;, instalação das dependẽncias, criação do conteúdo, teste local e envio das modificações ao GitHub.&lt;/p&gt;
+&lt;p&gt;O Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), facilitando a publicação através do &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt;. Um site estático não precisa de nenhum servidor de aplicação (&lt;em&gt;backend&lt;/em&gt;) em execução. Ele é composto apenas de arquivos HTML, CSS e JavaScript. Todo o código é gerado pelo Pelican. Ganhamos em performance, hospedagem, segurança e versionamento.&lt;/p&gt;
+&lt;p&gt;Como este site receberá publicações de várias pessoas, resolvemos usar as &lt;em&gt;Pull Requests&lt;/em&gt; do GitHub para controlar os artigos que serão publicados. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do PUG-PB. Qualquer pessoa com uma conta no GitHub poderá solicitar um &lt;em&gt;Pull Request&lt;/em&gt; e ter seu conteúdo publicado.&lt;/p&gt;
+&lt;h3&gt;Obtendo Uma Cópia do Site&lt;/h3&gt;
+&lt;p&gt;Para obter uma cópia do site você vai precisar do Git na sua máquina e de uma conta no &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt;. Primeiramente acesse o &lt;a href="https://github.com/pug-pb/pug-pb-site"&gt;repositório do site&lt;/a&gt; e crie um fork para o seu usuário. Uma vez criado o fork, clone o site em um diretório qualquer da sua máquina (no exemplo está na raiz do usuário):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;cd&lt;/span&gt; ~
+    git clone https://github.com/nomedousuario/pug-pb-site.git
+    &lt;span class="nb"&gt;cd&lt;/span&gt; pug-pb-site
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O repositório é composto de alguns diretórios principais:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    pug-pb-site
+    │
+    ├── content
+    │   ├── articles
+    │   ├── images
+    │   └── pages
+    ├── .plugins
+    └── themes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O diretório &lt;code&gt;content&lt;/code&gt; possui todos os conteúdos, como artigos, imagens, pdfs e páginas, o &lt;code&gt;.plugins&lt;/code&gt; contém todos os &lt;em&gt;plugins&lt;/em&gt; do Pelican, e o diretório &lt;code&gt;themes&lt;/code&gt; possui o tema que utilizamos no site. Vamos nos focar apenas no diretório &lt;code&gt;content&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Agora temos que preparar o ambiente.&lt;/p&gt;
+&lt;h3&gt;Preparando o Ambiente&lt;/h3&gt;
+&lt;p&gt;Criar o ambiente de uso do Pelican é muito simples, pra isso você vai precisar de:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Python 3.6 ou superior;&lt;/li&gt;
+&lt;li&gt;Conexão de internet;&lt;/li&gt;
+&lt;li&gt;Um terminal;&lt;/li&gt;
+&lt;li&gt;Um editor de texto;&lt;/li&gt;
+&lt;li&gt;Um navegador;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Primeiro abra um terminal e crie um &lt;em&gt;virtual environment&lt;/em&gt; para o Python 3(note que este passo não é obrigatório, mas é uma boa prática):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;cd&lt;/span&gt; ~/pug-pb-site
+    python3 -m venv pugpb_venv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você pode chamar seu &lt;em&gt;virtual env&lt;/em&gt; com qualquer nome que queira, e colocar em qualquer outra pasta. Uma vez criado este &lt;em&gt;virtual env&lt;/em&gt;, ative-o:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;source&lt;/span&gt; ~/pug-pb-site/pugpb_venv/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez ativado o &lt;em&gt;virtual env&lt;/em&gt; basta instalar todas as dependências. Para isso utilize o seguinte comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Após instaladas todas as dependências faça a geração de teste do site, com o comando &lt;code&gt;make html&lt;/code&gt;. É criado um diretório &lt;code&gt;output&lt;/code&gt;, com o conteúdo gerado. Este diretório já está no &lt;code&gt;.gitignore&lt;/code&gt; e não deverá entrar no seu &lt;em&gt;commit&lt;/em&gt;. Para visualizar o site &lt;strong&gt;localmente&lt;/strong&gt; rode o comando &lt;code&gt;make serve&lt;/code&gt; (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL &lt;a href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt;. Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo &lt;code&gt;Makefile&lt;/code&gt;. Para sair do "modo servidor" pressione &lt;code&gt;Ctrl+C&lt;/code&gt; e a linha de comando retornará ao normal.&lt;/p&gt;
+&lt;p&gt;Após algum tempo de uso, é costume sempre executar uma cadeia de comandos para evitar que arquivos de compilações prévias interfiram com a visualização atual: &lt;code&gt;make clean html serve&lt;/code&gt;. Apenas esta linha de comando limpa o conteúdo do diretório &lt;code&gt;output&lt;/code&gt;, gera o site novamente, e entra no modo servidor. Novamente, para sair do &lt;em&gt;modo servidor&lt;/em&gt; pressione &lt;code&gt;Ctrl+C&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Se você estiver usando o Windows, em que não há o comando &lt;code&gt;make&lt;/code&gt;,  os comandos equivalentes seriam:&lt;/p&gt;
+&lt;p&gt;1) make clean: &lt;code&gt;del output&lt;/code&gt;
+2) make html: &lt;code&gt;pelican&lt;/code&gt;
+3) make serve: &lt;code&gt;pelican -l&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Escrevendo Seus Próprios Artigos&lt;/h3&gt;
+&lt;p&gt;Para escrever seus próprios artigos, a maneira mais simples é copiar o arquivo &lt;code&gt;content/articles/padrao-artigo.md&lt;/code&gt; para a mesma pasta, abrir o novo arquivo criado e digitar seu artigo. Sugiro olhar o &lt;a href="blog/tutorial"&gt;tutorial&lt;/a&gt; da linguagem de marcação Markdown, utilizada para produzir as páginas HTML. Também é possível olhar exemplos dos artigos já publicados, no diretório &lt;code&gt;contents/articles&lt;/code&gt;. Um artigo tem um cabeçalho fixo, conforme abaixo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    Title: Como Publicar No Blog&lt;/span&gt;
+&lt;span class="err"&gt;    Date: 2015-07-22 14:57&lt;/span&gt;
+&lt;span class="err"&gt;    Author: Guido&lt;/span&gt;
+&lt;span class="err"&gt;    Category: Blog&lt;/span&gt;
+&lt;span class="err"&gt;    Tags: tutorial, tecnico, pelican, site&lt;/span&gt;
+&lt;span class="err"&gt;    image: /images/monty-python-knights.jpg&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Coloque o título do seu artigo, seguido da data de publicação (no formato &lt;code&gt;YYYY-MM-DD HH:MM&lt;/code&gt;). Logo abaixo temos o nome do autor, categoria e uma lista de tags. A palavra-chave &lt;code&gt;image&lt;/code&gt; faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo. A imagem deve ser colocada na pasta &lt;code&gt;content/images&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Após este cabeçalho fixo, basta escrever o texto de acordo com a linguagem de marcação. Uma vez concluído o artigo, teste a compilação novamente com o comando &lt;code&gt;make clean html serve&lt;/code&gt; e acesse a URL &lt;a href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt; para ver como ficou.&lt;/p&gt;
+&lt;h3&gt;Enviando Sua Contribuição&lt;/h3&gt;
+&lt;p&gt;Uma vez concluído o artigo, vamos realizar o &lt;em&gt;commit&lt;/em&gt; da alteração:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    git add content/article/meu-artigo.md
+    git add content/images/minha-imagem-do-artigo.png
+    git commit -m &lt;span class="s2"&gt;"Adicionado novo artivo 'meu-artigo'"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;em&gt;commit&lt;/em&gt; realizado com sucesso, você pode realizar o push pro seu repositório remoto (GitHub):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta enviar um &lt;em&gt;Pull Request&lt;/em&gt; do seu repositório, através da interface do GitHub, e os gestores do site irão aprovar sua contribuição.&lt;/p&gt;
+&lt;p&gt;A fonte da &lt;strong&gt;Ilustração&lt;/strong&gt; utilizada: &lt;icons8.com&gt;&lt;/icons8.com&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="pug-pb"></category><category term="blog"></category><category term="publicar"></category><category term="tutorial"></category><category term="pelican"></category></entry><entry><title>MeetUp Virtual BDD Django</title><link href="https://pb.python.org.br/blog/meetup-virtual-bdd-django" rel="alternate"></link><published>2017-12-02T15:00:00-03:00</published><updated>2017-12-02T15:00:00-03:00</updated><author><name>Fernando</name></author><id>tag:pb.python.org.br,2017-12-02:/blog/meetup-virtual-bdd-django</id><summary type="html">&lt;p&gt;PUG-PB promove meetup virtual&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h2&gt;MeetUp Virtual BDD Django&lt;/h2&gt;
 &lt;p&gt;No dia 02/12/2017, foi realizado um evento virtual ao vivo, com o &lt;a href="https://linkedin.com/in/renatocesarlira"&gt;Renato 
 César&lt;/a&gt;, explicando para a audiência 
 como utilizar a técnica BDD com Django. &lt;/p&gt;
@@ -15,10 +84,10 @@ comentou sobre a experiência de morar e trabalhar no exterior.&lt;/p&gt;
 &lt;iframe allowfullscreen="" frameborder="0" height="390" mozallowfullscreen="" src="https://www.youtube.com/embed/c9zqXGAxy2I" webkitallowfullscreen="" width="640"&gt;
 &lt;/iframe&gt;
 &lt;/span&gt;&lt;/p&gt;
-&lt;hr/&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="pug-pb"></category><category term="blog"></category><category term="evento"></category></entry><entry><title>1º MeetUp do PUG-PB</title><link href="http://pug-pb.github.io/blog/primeiro-meetup" rel="alternate"></link><published>2017-11-18T10:00:00-03:00</published><updated>2017-11-18T10:00:00-03:00</updated><author><name>Fernando Júnior</name></author><id>tag:pug-pb.github.io,2017-11-18:/blog/primeiro-meetup</id><summary type="html">&lt;p&gt;Como foi o 1º MeetUp dp PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;1º MeetUp do PUG-PB&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Participantes" src="http://pug-pb.github.io/images/primeiro-meetup-participantes.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;hr/&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Evento"></category><category term="pug-pb"></category><category term="blog"></category><category term="evento"></category></entry><entry><title>1º MeetUp do PUG-PB</title><link href="https://pb.python.org.br/blog/primeiro-meetup" rel="alternate"></link><published>2017-11-18T10:00:00-03:00</published><updated>2017-11-18T10:00:00-03:00</updated><author><name>Fernando</name></author><id>tag:pb.python.org.br,2017-11-18:/blog/primeiro-meetup</id><summary type="html">&lt;p&gt;Como foi o 1º MeetUp dp PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;1º MeetUp do PUG-PB&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Participantes" src="/images/primeiro-meetup-participantes.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;hr/&gt;
-&lt;p&gt;&lt;img alt="Participantes" src="http://pug-pb.github.io/images/primeiro-meetup-participantes1.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Participantes" src="/images/primeiro-meetup-participantes1.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;hr/&gt;
 &lt;p&gt;NO dia 18/11/2017, na sala 218 do bloco J do Centro Universitário do Unipê, 
 aconteceu o 1º MeetUp do PUG-PB, com a palestra "Construindo jogos para NES com 
@@ -33,12 +102,11 @@ formas de aprender, atividades pessoais, educacionais e/ou profissionais.&lt;/p&
 &lt;strong&gt;Gustavo Aragão&lt;/strong&gt;. No próximo evento, contaremos com mais uma licença para 
 ser sorteada.&lt;/p&gt;
 &lt;hr/&gt;
-&lt;p&gt;&lt;img alt="Participantes" src="http://pug-pb.github.io/images/primeiro-meetup-network.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Participantes" src="http://pug-pb.github.io/images/primeiro-meetup-network1.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Participantes" src="/images/primeiro-meetup-network.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Participantes" src="/images/primeiro-meetup-network1.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;hr/&gt;
-&lt;p&gt;&lt;img alt="Dados do evento" src="http://pug-pb.github.io/images/primeiro-meetup.jpg" style="width: 720px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
-&lt;hr/&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="pug-pb"></category><category term="blog"></category><category term="evento"></category></entry><entry><title>Parceria com a Jetbrains e sorteio de licenças</title><link href="http://pug-pb.github.io/blog/parceria" rel="alternate"></link><published>2017-11-16T10:00:00-03:00</published><updated>2017-11-16T10:00:00-03:00</updated><author><name>Fernando Júnior</name></author><id>tag:pug-pb.github.io,2017-11-16:/blog/parceria</id><summary type="html">&lt;p&gt;Jetbrains libera licenças para sortear nos nossos eventos&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Parceria com a Jetbrains&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Parceria do PUG-PB com a Jetbrains" src="http://pug-pb.github.io/images/parceriaJetb.jpg" style="width: 720px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dados do evento" src="/images/primeiro-meetup.jpg" style="width: 720px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;hr/&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Evento"></category><category term="pug-pb"></category><category term="blog"></category><category term="evento"></category></entry><entry><title>Parceria com a Jetbrains e sorteio de licenças</title><link href="https://pb.python.org.br/blog/parceria" rel="alternate"></link><published>2017-11-16T10:00:00-03:00</published><updated>2017-11-16T10:00:00-03:00</updated><author><name>Fernando</name></author><id>tag:pb.python.org.br,2017-11-16:/blog/parceria</id><summary type="html">&lt;p&gt;Jetbrains libera licenças para sortear nos nossos eventos&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Parceria com a Jetbrains&lt;/h3&gt;
 &lt;p&gt;A partir do próximo meetup do PUG-PB &lt;a href="pages/eventos.html"&gt;(Eventos)&lt;/a&gt;,
 passaremos a sortear licenças para utilização em qualquer produto da
 &lt;a href="https://www.jetbrains.com/products"&gt;Jetbrains&lt;/a&gt;.&lt;/p&gt;
@@ -58,52 +126,406 @@ gratuita:&lt;/p&gt;
 &lt;li&gt;Remote development capabilities&lt;/li&gt;
 &lt;li&gt;Database &amp;amp; SQL support&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Contamos com a presença de todos! (&lt;a href="https://www.sympla.com.br/meetup-pug-pb-python-user-group-of-paraiba__217120"&gt;Inscreva-se&lt;/a&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="pug-pb"></category><category term="blog"></category></entry><entry><title>Quarta reunião</title><link href="http://pug-pb.github.io/blog/quarta-reuniao" rel="alternate"></link><published>2017-10-28T15:40:00-03:00</published><updated>2017-10-28T15:40:00-03:00</updated><author><name>Fernando Júnior</name></author><id>tag:pug-pb.github.io,2017-10-28:/blog/quarta-reuniao</id><summary type="html">&lt;p&gt;Quarta reunião de organização do PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Quarta reunião&lt;/h3&gt;
-&lt;p&gt;No dia 28 de outubro de 2017, às 15 horas, aconteceu nossa quarta
-reunião, ainda objetivando organizar e manter um Grupo de Usuários Python na
-Paraíba.&lt;/p&gt;
-&lt;p&gt;Resultados da reunião na ata:&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://pug-pb.github.io/pdfs/reuniao-004.pdf"&gt;Ata da reunião do PUG-PB, em 28.10.2017&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="pug-pb"></category><category term="organization"></category></entry><entry><title>Terceira reunião</title><link href="http://pug-pb.github.io/blog/terceira-reuniao" rel="alternate"></link><published>2016-12-16T10:00:00-03:00</published><updated>2016-12-16T10:00:00-03:00</updated><author><name>Eduardo Araújo</name></author><id>tag:pug-pb.github.io,2016-12-16:/blog/terceira-reuniao</id><summary type="html">&lt;p&gt;Terceira reunião de organização do PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Terceira reunião&lt;/h3&gt;
-&lt;p&gt;No dia 15 de dezembro de 2016, às 23 horas, aconteceu via Hangouts nossa terceira
-reunião, ainda objetivando organizar e manter um Grupo de Usuários Python na Paraíba.&lt;/p&gt;
-&lt;p&gt;Resultados da reunião na ata:&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://pug-pb.github.io/pdfs/reuniao-003.pdf"&gt;Ata da reunião do PUG-PB, em 15.12.2016&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="pug-pb"></category><category term="organization"></category></entry><entry><title>Segunda reunião</title><link href="http://pug-pb.github.io/blog/segunda-reuniao" rel="alternate"></link><published>2016-11-21T10:00:00-03:00</published><updated>2016-11-21T10:00:00-03:00</updated><author><name>Eduardo Araújo</name></author><id>tag:pug-pb.github.io,2016-11-21:/blog/segunda-reuniao</id><summary type="html">&lt;p&gt;Segunda reunião de organização do PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Segunda reunião&lt;/h3&gt;
-&lt;p&gt;No dia 12 de novembro de 2016, às 15 horas, aconteceu na sala de uma consultoria
-emprestada para o evento, nossa segunda reunião, ainda objetivando organizar e
-manter um Grupo de Usuários Python na Paraíba.&lt;/p&gt;
-&lt;p&gt;Resultados da reunião na ata:&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://pug-pb.github.io/pdfs/reuniao-002.pdf"&gt;Ata da reunião do PUG-PB, em 12.11.2016&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="organization"></category><category term="staff"></category></entry><entry><title>Primeira reunião</title><link href="http://pug-pb.github.io/blog/primeira-reuniao" rel="alternate"></link><published>2016-11-01T10:00:00-03:00</published><updated>2016-11-01T10:00:00-03:00</updated><author><name>Eduardo Araújo</name></author><id>tag:pug-pb.github.io,2016-11-01:/blog/primeira-reuniao</id><summary type="html">&lt;p&gt;Primeira reunião de organização do PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Primeira reunião&lt;/h3&gt;
+&lt;p&gt;Contamos com a presença de todos! (&lt;a href="https://www.sympla.com.br/meetup-pug-pb-python-user-group-of-paraiba__217120"&gt;Inscreva-se&lt;/a&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="pug-pb"></category><category term="blog"></category></entry><entry><title>Código de conduta da comunidade PUG-PB</title><link href="https://pb.python.org.br/blog/cdc" rel="alternate"></link><published>2016-12-30T12:00:00-03:00</published><updated>2016-12-30T12:00:00-03:00</updated><author><name>PSF</name></author><id>tag:pb.python.org.br,2016-12-30:/blog/cdc</id><summary type="html">&lt;p&gt;Don't be an asshole!&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Código de Conduta&lt;/h3&gt;
+&lt;p&gt;A comunidade de usuários Python na Paraíba é um ambiente amistoso, de boa convivência, inclusivo e livre de intimidação, onde todas as pessoas são bem-vindas e a civilidade é exigida.&lt;/p&gt;
+&lt;p&gt;Com esta finalidade, a organização conta com uma Equipe de Resposta que atua para garantir um ambiente com essas qualidades.&lt;/p&gt;
+&lt;p&gt;Por isso:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Não é tolerado nenhum tipo de assédio, discriminação inapropriada ou humilhação pública;&lt;/span&gt;
+&lt;span class="err"&gt;Não é tolerado o descumprimento das leis brasileiras;&lt;/span&gt;
+&lt;span class="err"&gt;Toda pessoa que participe na comunidade, independente do seu papel, está sujeita a estas regras;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Desta forma, entendemos que:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Assédio é a ação de insistir, perseguir ou coagir outra pessoa a um comportamento involuntário.&lt;/span&gt;
+&lt;span class="err"&gt;Discriminação inapropriada é o ato de separar, injuriar ou humilhar alguém promovendo sua exclusão por atributo particular da mesma.&lt;/span&gt;
+&lt;span class="err"&gt;Humilhação pública é o ato de submeter, rebaixar, ridicularizar ou promover o vexame de outro publicamente.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O público alvo da comunidade também inclui crianças e adolescentes, por isso buscamos manter um ambiente apropriado para todas as faixas etárias. Sendo assim, linguagem e imagens sexualizadas não são adequados para palestras e ações promocionais de patrocinadores.&lt;/p&gt;
+&lt;p&gt;Se você se sentiu assediado, discriminado indevidamente ou humilhado, ou presenciou alguma destas atitudes, por favor entre em contato com a &lt;a href="mailto:pugpb_br@gmail.com"&gt;Equipe de Resposta&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Havendo um relato de violação destes princípios, a Equipe de Resposta realizará a devida análise e, quando necessário, tomará as ações para impedir a reincidência. Estas ações podem, mas não se restringem nem implicam em ir desde uma conversa em busca da retratação até um convite a se retirar da comunidade por tempo indeterminado.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="pug-pb"></category><category term="blog"></category><category term="código de conduta"></category></entry><entry><title>Tutorial da linguagem de marcação Markdown</title><link href="https://pb.python.org.br/blog/tutorial-markdown" rel="alternate"></link><published>2016-11-17T01:30:00-03:00</published><updated>2016-11-17T01:30:00-03:00</updated><author><name>Hildeberto</name></author><id>tag:pb.python.org.br,2016-11-17:/blog/tutorial-markdown</id><summary type="html">&lt;p&gt;Principais elementos da sintaxe da linguagem de marcação Markdown, que é utilizada para gerar conteúdo neste blog.&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Principais elementos da sintaxe Markdown&lt;/h1&gt;
+&lt;p&gt;Fonte: http://daringfireball.net/projects/markdown/syntax&lt;/p&gt;
+&lt;p&gt;Excertos e tradução: @hilam&lt;/p&gt;
+&lt;h3&gt;ELEMENTOS DE BLOCO&lt;/h3&gt;
+&lt;h4&gt;PARÁGRAFOS E QUEBRAS DE LINHA&lt;/h4&gt;
+&lt;p&gt;Um parágrafo é simplesmente uma ou mais linhas consecutivas de texto, separadas
+por uma ou mais linhas em branco. (Uma linha em branco é qualquer uma que pareça
+com uma linha em branco - uma linha contendo apenas espaços em branco ou tabulações
+é considerada em branco.) Parágrafos não devem ser identados com espaços ou tabulações.&lt;/p&gt;
+&lt;h4&gt;CABEÇALHOS&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;Isto é um H1&lt;/span&gt;
+&lt;span class="gh"&gt;============&lt;/span&gt;
+
+&lt;span class="gh"&gt;Isto é um H2&lt;/span&gt;
+&lt;span class="gh"&gt;------------&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;produz:&lt;/p&gt;
+&lt;h1&gt;Isto é um H1&lt;/h1&gt;
+&lt;h2&gt;Isto é um H2&lt;/h2&gt;
+&lt;p&gt;Qualquer número de =’s ou -’s funcionará.&lt;/p&gt;
+&lt;p&gt;Outra forma:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Isto&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;H1&lt;/span&gt;
+
+&lt;span class="o"&gt;##&lt;/span&gt; &lt;span class="n"&gt;Isto&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;H2&lt;/span&gt;
+
+&lt;span class="o"&gt;######&lt;/span&gt; &lt;span class="n"&gt;Isto&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;H6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Isto é um H1&lt;/h1&gt;
+&lt;h2&gt;Isto é um H2&lt;/h2&gt;
+&lt;h6&gt;Isto é um H6&lt;/h6&gt;
+&lt;h4&gt;CITAÇÕES&lt;/h4&gt;
+&lt;p&gt;Markdown usa o caractere &amp;gt;, como no estilo email, para citações. Se você costuma
+citar passagens de emails, então você saberá criar uma citação em Markdown. Ele
+fica melhor se você distribui o texto e põe o caractere &amp;gt; antes de cada linha:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; id sem consectetuer libero luctus adipiscing.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;p&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É possível colocar o &amp;gt; apenas no início da primeira linha do parágrafo citado:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Esta&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="n"&gt;uma&lt;/span&gt; &lt;span class="n"&gt;citação&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="n"&gt;dois&lt;/span&gt; &lt;span class="n"&gt;parágrafos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Lorem&lt;/span&gt; &lt;span class="n"&gt;ipsum&lt;/span&gt; &lt;span class="n"&gt;dolor&lt;/span&gt; &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;consectetuer&lt;/span&gt; &lt;span class="n"&gt;adipiscing&lt;/span&gt; &lt;span class="n"&gt;elit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Aliquam&lt;/span&gt; &lt;span class="n"&gt;hendrerit&lt;/span&gt; &lt;span class="n"&gt;mi&lt;/span&gt; &lt;span class="n"&gt;posuere&lt;/span&gt; &lt;span class="n"&gt;lectus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Vestibulum&lt;/span&gt; &lt;span class="n"&gt;enim&lt;/span&gt; &lt;span class="n"&gt;wisi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;viverra&lt;/span&gt; &lt;span class="n"&gt;nec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fringilla&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;laoreet&lt;/span&gt; &lt;span class="n"&gt;vitae&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;risus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Donec&lt;/span&gt; &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt; &lt;span class="n"&gt;nisl&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Aliquam&lt;/span&gt; &lt;span class="n"&gt;semper&lt;/span&gt; &lt;span class="n"&gt;ipsum&lt;/span&gt; &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt; &lt;span class="n"&gt;velit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Suspendisse&lt;/span&gt;
+&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;sem&lt;/span&gt; &lt;span class="n"&gt;consectetuer&lt;/span&gt; &lt;span class="n"&gt;libero&lt;/span&gt; &lt;span class="n"&gt;luctus&lt;/span&gt; &lt;span class="n"&gt;adipiscing&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;p&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Citações podem ser aninhadas (por ex.: uma citação dentro da citação) adicionando
+o caractere &amp;gt; para dicionar níveis:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; Primeiro nível da citação.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; &amp;gt; Citação aninhada, num segundo nível.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; De volta ao primeiro nível da citação.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Primeiro nível da citação.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Citação aninhada, num segundo nível.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;De volta ao primeiro nível da citação.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Citações podem conter outros elementos Markdown elements, incluindo cabeçalhos,
+ listas, e blocos de código:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; ## Cabeçalho H2&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; 1.   Primeiro item da lista.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; 2.   Segundo item.&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt; Um exemplo com código:&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;&amp;gt;     return shell_exec("echo $input | $markdown_script");&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Cabeçalho H2&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Primeiro item da lista.&lt;/li&gt;
+&lt;li&gt;Segundo item.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Um exemplo com código:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;return shell_exec("echo $input | $markdown_script");&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;LISTAS&lt;/h4&gt;
+&lt;p&gt;Markdown suporta listas ordenadas (numeradas) e não ordenadas (bullet).&lt;/p&gt;
+&lt;p&gt;Listas não ordenadas usam *, + e - (não misturados):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;*   Red&lt;/span&gt;
+&lt;span class="err"&gt;*   Green&lt;/span&gt;
+&lt;span class="err"&gt;*   Blue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;equivalente a:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;+   Red&lt;/span&gt;
+&lt;span class="err"&gt;+   Green&lt;/span&gt;
+&lt;span class="err"&gt;+   Blue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;e:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;-   Red&lt;/span&gt;
+&lt;span class="err"&gt;-   Green&lt;/span&gt;
+&lt;span class="err"&gt;-   Blue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;todos produzem:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Listas ordenadas usam números seguidos de ponto(.):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;1.  Bird&lt;/span&gt;
+&lt;span class="err"&gt;2.  McHale&lt;/span&gt;
+&lt;span class="err"&gt;3.  Parish&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Outros exemplos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/span&gt;
+&lt;span class="err"&gt;    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,&lt;/span&gt;
+&lt;span class="err"&gt;    viverra nec, fringilla in, laoreet vitae, risus.&lt;/span&gt;
+&lt;span class="err"&gt;*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.&lt;/span&gt;
+&lt;span class="err"&gt;    Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.&lt;/li&gt;
+&lt;li&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mas se você for preguiçoso, não precisa:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/span&gt;
+&lt;span class="err"&gt;Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,&lt;/span&gt;
+&lt;span class="err"&gt;viverra nec, fringilla in, laoreet vitae, risus.&lt;/span&gt;
+&lt;span class="err"&gt;*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.&lt;/span&gt;
+&lt;span class="err"&gt;Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.&lt;/li&gt;
+&lt;li&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Os itens da lista podem consistir de vários parágrafos. Cada parágrafo
+subsequente no item da lista deve ser identado por 4 espaços ou tabulação:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Um&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;lista&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="n"&gt;dois&lt;/span&gt; &lt;span class="n"&gt;parágrafos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Lorem&lt;/span&gt; &lt;span class="n"&gt;ipsum&lt;/span&gt; &lt;span class="n"&gt;dolor&lt;/span&gt;
+    &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consectetuer&lt;/span&gt; &lt;span class="n"&gt;adipiscing&lt;/span&gt; &lt;span class="n"&gt;elit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Aliquam&lt;/span&gt; &lt;span class="n"&gt;hendrerit&lt;/span&gt;
+    &lt;span class="n"&gt;mi&lt;/span&gt; &lt;span class="n"&gt;posuere&lt;/span&gt; &lt;span class="n"&gt;lectus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+    &lt;span class="n"&gt;Vestibulum&lt;/span&gt; &lt;span class="n"&gt;enim&lt;/span&gt; &lt;span class="n"&gt;wisi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;viverra&lt;/span&gt; &lt;span class="n"&gt;nec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fringilla&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;laoreet&lt;/span&gt;
+    &lt;span class="n"&gt;vitae&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;risus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Donec&lt;/span&gt; &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt; &lt;span class="n"&gt;nisl&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Aliquam&lt;/span&gt; &lt;span class="n"&gt;semper&lt;/span&gt; &lt;span class="n"&gt;ipsum&lt;/span&gt;
+    &lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt; &lt;span class="n"&gt;velit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Suspendisse&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;sem&lt;/span&gt; &lt;span class="n"&gt;consectetuer&lt;/span&gt; &lt;span class="n"&gt;libero&lt;/span&gt; &lt;span class="n"&gt;luctus&lt;/span&gt; &lt;span class="n"&gt;adipiscing&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Um item de lista com dois parágrafos. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.&lt;/p&gt;
+&lt;p&gt;Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+sit amet velit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt;   &lt;span class="n"&gt;Item&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;lista&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="n"&gt;dois&lt;/span&gt; &lt;span class="n"&gt;parágrafos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+    &lt;span class="n"&gt;Segundo&lt;/span&gt; &lt;span class="n"&gt;parágrafo&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Só&lt;/span&gt;
+&lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="n"&gt;necessário&lt;/span&gt; &lt;span class="n"&gt;identar&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;primeira&lt;/span&gt; &lt;span class="n"&gt;linha&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Lorem&lt;/span&gt; &lt;span class="n"&gt;ipsum&lt;/span&gt; &lt;span class="n"&gt;dolor&lt;/span&gt;
+&lt;span class="n"&gt;sit&lt;/span&gt; &lt;span class="n"&gt;amet&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consectetuer&lt;/span&gt; &lt;span class="n"&gt;adipiscing&lt;/span&gt; &lt;span class="n"&gt;elit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="o"&gt;*&lt;/span&gt;   &lt;span class="n"&gt;Outro&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;da&lt;/span&gt; &lt;span class="n"&gt;lista&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Item de lista com dois parágrafos.&lt;/p&gt;
+&lt;p&gt;Segundo parágrafo do item. Só
+é necessário identar a primeira linha. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Outro item da lista.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;É possível indicar uma lista ordenada por acidente, escrevendo algo como isso:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;1986. Que grande temporada.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Que grande temporada.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Em outras palavras, uma sequência número-ponto-espaço no começo de uma linha.
+Para evitar isso, você pode "escapar" o ponto(.) com a barra invertida:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;1986\. Que grande temporada.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;1986. Que grande temporada.&lt;/p&gt;
+&lt;h4&gt;BLOCOS DE CÓDIGO&lt;/h4&gt;
+&lt;p&gt;Para produzir um bloco de código, simplesmente idente cada linha do bloco com,
+pelo menos, 4 espaços ou 1 tabulação:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Parágrafo&lt;/span&gt; &lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+    &lt;span class="n"&gt;Bloco&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;código&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Markdown vai gerar:&lt;/p&gt;
+&lt;p&gt;Parágrafo normal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Bloco de código.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Exemplo com Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;teste&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;"Hello PUG!"&lt;/span&gt;
+
+&lt;span class="n"&gt;teste&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um bloco de código continua até atingir uma linha que não está identada.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"footer"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ni"&gt;&amp;amp;copy;&lt;/span&gt; 2004 Foo Corporation
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sintaxe regular do Markdown não é processada dentro de blocos de código.&lt;/p&gt;
+&lt;h4&gt;RÉGUAS HORIZONTAIS (HR)&lt;/h4&gt;
+&lt;p&gt;É possível produzir uma régua horizontal colocando três ou mais hífens,
+asteriscos ou sublinhados numa linha.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="o"&gt;***&lt;/span&gt;
+
+&lt;span class="o"&gt;*****&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;
+
+&lt;span class="c1"&gt;---------------------------------------&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;hr/&gt;
+&lt;hr/&gt;
+&lt;hr/&gt;
+&lt;hr/&gt;
+&lt;h4&gt;LINKS&lt;/h4&gt;
+&lt;p&gt;Markdown suporta dois estilos de links: inline e reference.&lt;/p&gt;
+&lt;p&gt;Em ambos, o texto do link é delimitado por [colchetes].&lt;/p&gt;
+&lt;p&gt;Para criar um link "inline", use um conjunto de parêntesis imediatamente após
+o colchete que finaliza o texto do link. Dentro dos parêntesis, coloque a URL,
+com um título opcional para o link, esntre aspas. Por exemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Este&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;exemplo&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//example.com/ "Título") de link inline.&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Este&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//example.net/) não tem o atributo título.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este é &lt;a href="http://example.com/" title="Título"&gt;um exemplo&lt;/a&gt; de link inline.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://example.net/"&gt;Este link&lt;/a&gt; não tem o atributo título.&lt;/p&gt;
+&lt;p&gt;Podem ser usados caminhos relativos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Veja&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;minha&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;página&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Sobre&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;about&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;para&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;detalhes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja minha página &lt;a href="/about/"&gt;Sobre&lt;/a&gt; para detalhes.&lt;/p&gt;
+&lt;p&gt;Links estilo "reference" usam um segundo conjunto de colchetes, dentro dos quais
+colocamos um "label" de nossa escolha para identificar o link:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Isto&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;exemplo&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="kt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;estilo&lt;/span&gt; &lt;span class="s"&gt;"reference"&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isto é &lt;a href="http://example.com/" title="Título Opcional aqui"&gt;um exemplo&lt;/a&gt; de link estilo "reference".&lt;/p&gt;
+&lt;p&gt;Pode-se, opcionalmente, usar um espaço para separar os conjuntos de colchetes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Este&lt;/span&gt; &lt;span class="err"&gt;é&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;exemplo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;estilo&lt;/span&gt; &lt;span class="s"&gt;"reference"&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este é &lt;a href="http://example.com/" title="Título Opcional aqui"&gt;um exemplo&lt;/a&gt; de link estilo "reference".&lt;/p&gt;
+&lt;p&gt;Então, em qualquer lugar do documento, você define o "label" do seu link assim:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;example&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;"Título Opcional aqui"&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;ÊNFASE&lt;/h4&gt;
+&lt;p&gt;Asteriscos (*) e sublinhados (_) são indicadores de ênfase.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="n"&gt;asterisco&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="n"&gt;_um&lt;/span&gt; &lt;span class="n"&gt;sublinhado_&lt;/span&gt;
+
+&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;dois&lt;/span&gt; &lt;span class="n"&gt;asteriscos&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;
+
+&lt;span class="n"&gt;__dois&lt;/span&gt; &lt;span class="n"&gt;sublinhados__&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;produzirão:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;um asterisco&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;um sublinhado&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;dois asteriscos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;dois sublinhados&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;CÓDIGO&lt;/h4&gt;
+&lt;p&gt;Para indicar um trecho de código use (`). &lt;/p&gt;
+&lt;p&gt;Pode-se inserir código num parágrfo normal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Use a função `printf()` para imprimir em Python.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;produzirá:&lt;/p&gt;
+&lt;p&gt;Use a função &lt;code&gt;printf()&lt;/code&gt; para imprimir em Python.&lt;/p&gt;
+&lt;p&gt;Pode-se inserir um trecho de código.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;area_circulo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raio&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;raio&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;raio&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;produzirá:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;area_circulo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raio&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;raio&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;raio&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;IMAGENS&lt;/h4&gt;
+&lt;p&gt;Markdown usa para imagesn uma sintaxe parecida com a de links:&lt;/p&gt;
+&lt;p&gt;Imagens com sintaxe "inline" são assim:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Alt&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Alt&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="s"&gt;"Título opcional"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Alt&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="kt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;  &lt;span class="s"&gt;"Título opcional"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;LINKS AUTOMÁTICOS&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;http://example.com/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="http://example.com/"&gt;http://example.com/&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;address@example.com&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="mailto:address@example.com"&gt;address@example.com&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;CARACTERE DE ESCAPE&lt;/h4&gt;
+&lt;p&gt;Markdown permite usar a contra-barra para gerar caracteres literais:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;\*como o \* faz parte da marcação, é necessário colocar a contra-barra (\\) antes do \*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;*como o * faz parte da marcação, é necessário colocar a contra-barra (\) antes do *&lt;/p&gt;
+&lt;p&gt;Use a contra-barra se quiser colocar algum desses caracteres no texto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;\\&lt;/span&gt;
+&lt;span class="err"&gt;\`&lt;/span&gt;
+&lt;span class="err"&gt;\*&lt;/span&gt;
+&lt;span class="err"&gt;\_&lt;/span&gt;
+&lt;span class="err"&gt;\{\}&lt;/span&gt;
+&lt;span class="err"&gt;\[\]&lt;/span&gt;
+&lt;span class="err"&gt;\(\)&lt;/span&gt;
+&lt;span class="err"&gt;\#&lt;/span&gt;
+&lt;span class="err"&gt;\+&lt;/span&gt;
+&lt;span class="err"&gt;\-&lt;/span&gt;
+&lt;span class="err"&gt;\.&lt;/span&gt;
+&lt;span class="err"&gt;\!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;\
+`
+*
+_
+{}
+[]
+()
+#
++
+-
+.
+!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="tutorial"></category><category term="markdown"></category></entry><entry><title>Primeira reunião</title><link href="https://pb.python.org.br/blog/primeira-reuniao" rel="alternate"></link><published>2016-11-01T10:00:00-03:00</published><updated>2016-11-01T10:00:00-03:00</updated><author><name>Eduardo Araújo</name></author><id>tag:pb.python.org.br,2016-11-01:/blog/primeira-reuniao</id><summary type="html">&lt;p&gt;Primeira reunião de organização do PUG-PB&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Primeira reunião&lt;/h3&gt;
 &lt;p&gt;No dia 29 de outubro de 2016, às 15 horas, aconteceu na praça de alimentação de
 um shopping em João Pessoa, a primeira reunião de pessoas interessadas em
 organizar e manter um Grupo de Usuários Python na Paraíba.&lt;/p&gt;
-&lt;p&gt;Resultados da reunião na ata:&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://pug-pb.github.io/pdfs/reuniao-001.pdf"&gt;Ata da reunião do PUG-PB, em 29.10.2016&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="organization"></category><category term="staff"></category></entry><entry><title>Com Python a diversão é garantida</title><link href="http://pug-pb.github.io/blog/diversao-garantida" rel="alternate"></link><published>2016-10-30T13:00:00-03:00</published><updated>2016-10-30T13:00:00-03:00</updated><author><name>Hildeberto Abreu</name></author><id>tag:pug-pb.github.io,2016-10-30:/blog/diversao-garantida</id><summary type="html">&lt;p&gt;Tirinhas e memes co Python&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Além de ser uma linguagem de programação boa de aprender e usar, Python também
-é divertida:&lt;/p&gt;
-&lt;h3&gt;XKCD Webcomic&lt;/h3&gt;
+&lt;p&gt;Como registro histórico, aqui está a ata daquele dia. Mas muita coisa mudou de lá pra cá...&lt;/p&gt;
+&lt;p&gt;&lt;a href="/pdfs/reuniao-001.pdf"&gt;Ata da reunião do PUG-PB, em 29.10.2016&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="organization"></category><category term="staff"></category></entry><entry><title>Com Python a diversão é garantida</title><link href="https://pb.python.org.br/blog/diversao-garantida" rel="alternate"></link><published>2016-10-30T13:00:00-03:00</published><updated>2016-10-30T13:00:00-03:00</updated><author><name>PUG-PB</name></author><id>tag:pb.python.org.br,2016-10-30:/blog/diversao-garantida</id><summary type="html">&lt;p&gt;Tirinhas e memes com Python&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Além de ser uma linguagem de programação boa de aprender e usar, Python também é divertida&lt;/h3&gt;
+&lt;h4&gt;XKCD Webcomic&lt;/h4&gt;
 &lt;p&gt;&lt;a href="https://www.xkcd.com/353/"&gt;Fonte&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="XKCD Python" src="http://pug-pb.github.io/images/xkcd-python.png" style="width: 518px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
-&lt;h3&gt;Monty Python era um grupo de comediantes ingleses, que inspirou o nome da linguagem&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="XKCD Python" src="/images/xkcd-python.png" style="width: 518px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h4&gt;Monty Python era o nome de um grupo de comediantes ingleses, que inspirou o nome da linguagem&lt;/h4&gt;
 &lt;p&gt;&lt;a href="https://pt.wikipedia.org/wiki/Monty_Python"&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Monty Python" src="http://pug-pb.github.io/images/monty-python-flying-circus.jpg" style="width: 300px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
-&lt;h3&gt;Python é utilizado de RaspberryPi a Android, passando por Linux e Windows&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="RaspberryPi" src="http://pug-pb.github.io/images/raspberry-pi-python.jpg" style="width: 150px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
-&lt;h3&gt;É uma linguagem fácil de aprender, utilizada por universidades americanas e brasileiras como linguagem inicial&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Aprendendo Python" src="http://pug-pb.github.io/images/suporte_567.jpg" style="width: 500px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="python"></category><category term="fun"></category><category term="comic"></category></entry><entry><title>Zen de Python</title><link href="http://pug-pb.github.io/blog/zen-python" rel="alternate"></link><published>2016-10-28T10:00:00-03:00</published><updated>2016-10-28T10:00:00-03:00</updated><author><name>PUG-PB</name></author><id>tag:pug-pb.github.io,2016-10-28:/blog/zen-python</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;h2&gt;Saudações Pythônicas!&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#/usr/bin/python3&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;O Zen do Python&lt;/h2&gt;
-&lt;p&gt;Bonito é melhor que feio.&lt;/p&gt;
-&lt;p&gt;Explícito é melhor que implícito.&lt;/p&gt;
-&lt;p&gt;Simples é melhor que complexo.&lt;/p&gt;
-&lt;p&gt;Complexo é melhor que complicado.&lt;/p&gt;
-&lt;p&gt;Linear é melhor do que aninhado.&lt;/p&gt;
-&lt;p&gt;Esparso é melhor que denso.&lt;/p&gt;
-&lt;p&gt;Legibilidade conta.&lt;/p&gt;
-&lt;p&gt;Casos especiais não são especiais o …&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h2&gt;Saudações Pythônicas!&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#/usr/bin/python3&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img alt="Monty Python" src="/images/monty-python-flying-circus.jpg" style="width: 300px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h4&gt;Python é utilizado de RaspberryPi a Android, passando por Linux e Windows&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="RaspberryPi" src="/images/raspberry-pi-python.jpg" style="width: 150px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h4&gt;É uma linguagem fácil de aprender, utilizada por universidades americanas e brasileiras como linguagem inicial&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Aprendendo Python" src="/images/suporte_567.jpg" style="width: 500px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="python"></category><category term="fun"></category><category term="comic"></category></entry><entry><title>Zen de Python</title><link href="https://pb.python.org.br/blog/zen-python" rel="alternate"></link><published>2016-10-28T10:00:00-03:00</published><updated>2016-10-28T10:00:00-03:00</updated><author><name>PUG-PB</name></author><id>tag:pb.python.org.br,2016-10-28:/blog/zen-python</id><summary type="html">&lt;p&gt;Conheça mais sobre o Zen de Python&lt;/p&gt;</summary><content type="html">&lt;html&gt;&lt;body&gt;&lt;h3&gt;Saudações Pythônicas&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;O Zen do Python&lt;/h2&gt;
 &lt;p&gt;Bonito é melhor que feio.&lt;/p&gt;
 &lt;p&gt;Explícito é melhor que implícito.&lt;/p&gt;
@@ -124,4 +546,4 @@ organizar e manter um Grupo de Usuários Python na Paraíba.&lt;/p&gt;
 &lt;p&gt;Se a implementação é difícil de explicar, é uma má ideia.&lt;/p&gt;
 &lt;p&gt;Se a implementação é fácil de explicar, pode ser uma boa ideia.&lt;/p&gt;
 &lt;p&gt;Namespaces são uma grande ideia — vamos ter mais dessas!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tim Peters&lt;/strong&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="python"></category><category term="pythonic"></category><category term="zen"></category></entry></feed>
+&lt;p&gt;&lt;strong&gt;Tim Peters&lt;/strong&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</content><category term="Blog"></category><category term="python"></category><category term="pythonic"></category><category term="zen"></category></entry></feed>

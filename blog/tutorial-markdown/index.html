@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/Blog"
+    lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="O PUG-PB é uma comunidade de usuários (profissionais e
+                      amadores) da linguagem Python, onde prezamos pela troca de
+                      conhecimento, respeito mútuo e diversidade (tanto de 
+                      opinião quanto de tecnologias)."/>
+        <meta name="keywords" content="pug-pb, python, programação, paraiba, desenvolvimento"/>
+        <meta name="author" content="PUG-PB">
+        <meta name="generator" content="Feito com Materialize, Pelican,
+        Python e PyCharm CE. ">
+        <title>Tutorial da linguagem de marcação Markdown | PUG-PB</title>
+
+        <!-- Feeds -->
+            <link href="../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="PUG-PB ATOM Feed"/>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../../theme/css/font-awesome.min.css">
+        <link href="../../theme/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="../../theme/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="../../theme/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="../../theme/css/pygments/perldoc.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<link href="../../theme/css/article.css" type="text/css"
+      rel="stylesheet" media="screen,projection"/>
+
+        <style type="text/css">
+          .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url('../../images/banners/por-do-sol.jpg'); repeat scroll 0 0;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            overflow: hidden;
+          }
+        </style>
+        <!-- Metadata -->
+<!-- OpenGraph -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Tutorial da linguagem de marcação Markdown"/>
+<meta property="og:url" content="../../blog/tutorial-markdown"/>
+<meta property="og:site_name" content="PUG-PB"/>
+<meta property="og:description" content="Principais elementos da sintaxe da linguagem de marcação Markdown, que é utilizada para gerar conteúdo neste blog."/>
+<meta property="og:image" content="../../images/markdown.png"/>
+
+
+<!-- Article meta -->
+<meta property="article:author" content="Hildeberto"/>
+<meta property="article:section" content="Blog"/>
+<meta property="article:tag" content="tutorial, markdown"/>
+<meta property="article:published_time"
+      content="2016-11-17T01:30:00-03:00"/>
+
+<!-- Google+ -->
+<meta itemprop="name" content="Tutorial da linguagem de marcação Markdown"/>
+<meta itemprop="description" content="Principais elementos da sintaxe da linguagem de marcação Markdown, que é utilizada para gerar conteúdo neste blog."/>
+<meta itemprop="image" content="../../images/markdown.png"/>
+
+<!-- General purpose meta -->
+<meta name="description" content="Principais elementos da sintaxe da linguagem de marcação Markdown, que é utilizada para gerar conteúdo neste blog."/>
+<meta name="keywords" content="tutorial, markdown"/>
+
+    </head>
+
+    <body class="red darken-5">
+        <header>
+            <!-- Navigation -->
+<div class="navbar-fixed">
+    <nav class="red" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="/" class="brand-logo">
+                    PUG-PB
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li ><a
+                        href="../../blog/categorias/index.html">Categorias</a></li>
+                    <li ><a
+                        href="../../blog/autores/index.html">Autores</a></li>
+                    <li ><a
+                        href="../../blog/tags/index.html">Tags</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li class="red lighten-1"
+                        id="nav-mobile-header">
+                        <div class="row center">
+                            <div class="col s12" id="nav-mobile-header-img">
+                                <a href="/" alt="PUG-PB"
+                                   title="PUG-PB">
+                                    <img class="circle responsive-img valign z-depth-1"
+                                         alt="PUG-PB Logo"
+                                         title="PUG-PB"
+                                         src="../../images/logo/pug_logo.png">
+                                </a>
+                            </div>
+                            <div class="col s12" id="nav-mobile-header-text">
+                                <span class="red-text text-lighten-5">PUG-PB</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li ><a
+                        href="../../blog/categorias/index.html">Categorias</a></li>
+                    <li ><a
+                        href="../../blog/autores/index.html">Autores</a></li>
+                    <li ><a
+                        href="../../blog/tags/index.html">Tags</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i
+                        class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+            <!-- Banner -->
+<div class="hero hero-article"
+     style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../images/markdown.png')">
+</div>
+        </header>
+        <main>
+            <!-- Content -->
+<div class="container content-container">
+    <div style="bottom: 45px; right: 24px;" class="fixed-action-btn">
+        <a title="Código fonte no GitHub" class="btn-floating btn-large"
+           href="http://github.com/pug-pb/pug-pb.github.io/tree/pelican/content/articles/tutorial.md"
+           target="_blank">
+            <i class="fa fa-code"></i> Código Fonte
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align animated bounceInDown slow article-meta">
+            <h1 class="white-text">Tutorial da linguagem de marcação Markdown</h1>
+            <div class="article-metadata red-text text-lighten-5">
+                <span class="article-author-name">
+                <a href="../../blog/autores/hildeberto"
+                   title="Hildeberto"
+                   class="red-text text-lighten-5">
+                        <i class="fa fa-user"></i> Hildeberto
+                    </a>
+                </span>
+                <span class="article-category">
+                <a href="../../blog/categorias/blog"
+                   title="Blog"
+                   class="red-text text-lighten-5">
+                        <i class="fa fa-folder"></i> Blog
+                    </a>
+                </span>
+                <span class="article-datetime">
+                    <i class="fa fa-calendar"></i> <time
+                        datetime="2016-11-17T01:30:00-03:00">qui 17 novembro 2016</time>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 white z-depth-2 article">
+<ul class="breadcrumb">
+    <li>
+        <a class="grey-text text-darken-1" title="PUG-PB Home" href="/"><i
+                class="fa fa-home grey-text text-darken-2"></i></i></a>
+    </li>
+    <li>
+        <a class="grey-text text-darken-1" title="PUG-PB Blog|escape"
+           href="../../blog">PUG-PB Blog</a>
+    </li>
+    <li>
+        <a class="grey-text text-darken-1" title="Blog|escape"
+           href="../../blog/categorias/blog">Blog</a>
+    </li>
+    <li class="grey-text text-lighten-1">Tutorial da linguagem de marcação Markdown</li>
+</ul>            <div class="article-contents">
+                <html><body><h1>Principais elementos da sintaxe Markdown</h1>
+<p>Fonte: http://daringfireball.net/projects/markdown/syntax</p>
+<p>Excertos e tradução: @hilam</p>
+<h3>ELEMENTOS DE BLOCO</h3>
+<h4>PARÁGRAFOS E QUEBRAS DE LINHA</h4>
+<p>Um parágrafo é simplesmente uma ou mais linhas consecutivas de texto, separadas
+por uma ou mais linhas em branco. (Uma linha em branco é qualquer uma que pareça
+com uma linha em branco - uma linha contendo apenas espaços em branco ou tabulações
+é considerada em branco.) Parágrafos não devem ser identados com espaços ou tabulações.</p>
+<h4>CABEÇALHOS</h4>
+<div class="highlight"><pre><span></span><code><span class="gh">Isto é um H1</span>
+<span class="gh">============</span>
+
+<span class="gh">Isto é um H2</span>
+<span class="gh">------------</span>
+</code></pre></div>
+<p>produz:</p>
+<h1>Isto é um H1</h1>
+<h2>Isto é um H2</h2>
+<p>Qualquer número de =’s ou -’s funcionará.</p>
+<p>Outra forma:</p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">Isto</span> <span class="err">é</span> <span class="n">um</span> <span class="n">H1</span>
+
+<span class="o">##</span> <span class="n">Isto</span> <span class="err">é</span> <span class="n">um</span> <span class="n">H2</span>
+
+<span class="o">######</span> <span class="n">Isto</span> <span class="err">é</span> <span class="n">um</span> <span class="n">H6</span>
+</code></pre></div>
+<h1>Isto é um H1</h1>
+<h2>Isto é um H2</h2>
+<h6>Isto é um H6</h6>
+<h4>CITAÇÕES</h4>
+<p>Markdown usa o caractere &gt;, como no estilo email, para citações. Se você costuma
+citar passagens de emails, então você saberá criar uma citação em Markdown. Ele
+fica melhor se você distribui o texto e põe o caractere &gt; antes de cada linha:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&gt; Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,</span>
+<span class="err">&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.</span>
+<span class="err">&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</span>
+<span class="err">&gt;</span>
+<span class="err">&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse</span>
+<span class="err">&gt; id sem consectetuer libero luctus adipiscing.</span>
+</code></pre></div>
+<blockquote>
+<p>Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<p>É possível colocar o &gt; apenas no início da primeira linha do parágrafo citado:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">Esta</span> <span class="err">é</span> <span class="n">uma</span> <span class="n">citação</span> <span class="n">com</span> <span class="n">dois</span> <span class="n">parágrafos</span><span class="p">.</span> <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span>
+<span class="n">consectetuer</span> <span class="n">adipiscing</span> <span class="n">elit</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">hendrerit</span> <span class="n">mi</span> <span class="n">posuere</span> <span class="n">lectus</span><span class="p">.</span>
+<span class="n">Vestibulum</span> <span class="n">enim</span> <span class="n">wisi</span><span class="p">,</span> <span class="n">viverra</span> <span class="n">nec</span><span class="p">,</span> <span class="n">fringilla</span> <span class="k">in</span><span class="p">,</span> <span class="n">laoreet</span> <span class="n">vitae</span><span class="p">,</span> <span class="n">risus</span><span class="p">.</span>
+
+<span class="o">&gt;</span> <span class="n">Donec</span> <span class="n">sit</span> <span class="n">amet</span> <span class="n">nisl</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">semper</span> <span class="n">ipsum</span> <span class="n">sit</span> <span class="n">amet</span> <span class="n">velit</span><span class="p">.</span> <span class="n">Suspendisse</span>
+<span class="n">id</span> <span class="n">sem</span> <span class="n">consectetuer</span> <span class="n">libero</span> <span class="n">luctus</span> <span class="n">adipiscing</span><span class="p">.</span>
+</code></pre></div>
+<blockquote>
+<p>Esta é uma citação com dois parágrafos. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<p>Citações podem ser aninhadas (por ex.: uma citação dentro da citação) adicionando
+o caractere &gt; para dicionar níveis:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&gt; Primeiro nível da citação.</span>
+<span class="err">&gt;</span>
+<span class="err">&gt; &gt; Citação aninhada, num segundo nível.</span>
+<span class="err">&gt;</span>
+<span class="err">&gt; De volta ao primeiro nível da citação.</span>
+</code></pre></div>
+<blockquote>
+<p>Primeiro nível da citação.</p>
+<blockquote>
+<p>Citação aninhada, num segundo nível.</p>
+</blockquote>
+<p>De volta ao primeiro nível da citação.</p>
+</blockquote>
+<p>Citações podem conter outros elementos Markdown elements, incluindo cabeçalhos,
+ listas, e blocos de código:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&gt; ## Cabeçalho H2</span>
+<span class="err">&gt;</span>
+<span class="err">&gt; 1.   Primeiro item da lista.</span>
+<span class="err">&gt; 2.   Segundo item.</span>
+<span class="err">&gt;</span>
+<span class="err">&gt; Um exemplo com código:</span>
+<span class="err">&gt;</span>
+<span class="err">&gt;     return shell_exec("echo $input | $markdown_script");</span>
+</code></pre></div>
+<blockquote>
+<h2>Cabeçalho H2</h2>
+<ol>
+<li>Primeiro item da lista.</li>
+<li>Segundo item.</li>
+</ol>
+<p>Um exemplo com código:</p>
+<div class="highlight"><pre><span></span><code><span class="err">return shell_exec("echo $input | $markdown_script");</span>
+</code></pre></div>
+</blockquote>
+<h4>LISTAS</h4>
+<p>Markdown suporta listas ordenadas (numeradas) e não ordenadas (bullet).</p>
+<p>Listas não ordenadas usam *, + e - (não misturados):</p>
+<div class="highlight"><pre><span></span><code><span class="err">*   Red</span>
+<span class="err">*   Green</span>
+<span class="err">*   Blue</span>
+</code></pre></div>
+<p>equivalente a:</p>
+<div class="highlight"><pre><span></span><code><span class="err">+   Red</span>
+<span class="err">+   Green</span>
+<span class="err">+   Blue</span>
+</code></pre></div>
+<p>e:</p>
+<div class="highlight"><pre><span></span><code><span class="err">-   Red</span>
+<span class="err">-   Green</span>
+<span class="err">-   Blue</span>
+</code></pre></div>
+<p>todos produzem:</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>Listas ordenadas usam números seguidos de ponto(.):</p>
+<div class="highlight"><pre><span></span><code><span class="err">1.  Bird</span>
+<span class="err">2.  McHale</span>
+<span class="err">3.  Parish</span>
+</code></pre></div>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<p>Outros exemplos:</p>
+<div class="highlight"><pre><span></span><code><span class="err">*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
+<span class="err">    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,</span>
+<span class="err">    viverra nec, fringilla in, laoreet vitae, risus.</span>
+<span class="err">*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.</span>
+<span class="err">    Suspendisse id sem consectetuer libero luctus adipiscing.</span>
+</code></pre></div>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<p>Mas se você for preguiçoso, não precisa:</p>
+<div class="highlight"><pre><span></span><code><span class="err">*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
+<span class="err">Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,</span>
+<span class="err">viverra nec, fringilla in, laoreet vitae, risus.</span>
+<span class="err">*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.</span>
+<span class="err">Suspendisse id sem consectetuer libero luctus adipiscing.</span>
+</code></pre></div>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<p>Os itens da lista podem consistir de vários parágrafos. Cada parágrafo
+subsequente no item da lista deve ser identado por 4 espaços ou tabulação:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">1</span><span class="p">.</span>  <span class="n">Um</span> <span class="n">item</span> <span class="n">de</span> <span class="n">lista</span> <span class="n">com</span> <span class="n">dois</span> <span class="n">parágrafos</span><span class="p">.</span> <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span>
+    <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consectetuer</span> <span class="n">adipiscing</span> <span class="n">elit</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">hendrerit</span>
+    <span class="n">mi</span> <span class="n">posuere</span> <span class="n">lectus</span><span class="p">.</span>
+
+    <span class="n">Vestibulum</span> <span class="n">enim</span> <span class="n">wisi</span><span class="p">,</span> <span class="n">viverra</span> <span class="n">nec</span><span class="p">,</span> <span class="n">fringilla</span> <span class="k">in</span><span class="p">,</span> <span class="n">laoreet</span>
+    <span class="n">vitae</span><span class="p">,</span> <span class="n">risus</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">sit</span> <span class="n">amet</span> <span class="n">nisl</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">semper</span> <span class="n">ipsum</span>
+    <span class="n">sit</span> <span class="n">amet</span> <span class="n">velit</span><span class="p">.</span>
+
+<span class="mi">2</span><span class="p">.</span>  <span class="n">Suspendisse</span> <span class="n">id</span> <span class="n">sem</span> <span class="n">consectetuer</span> <span class="n">libero</span> <span class="n">luctus</span> <span class="n">adipiscing</span><span class="p">.</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Um item de lista com dois parágrafos. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.</p>
+<p>Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+sit amet velit.</p>
+</li>
+<li>
+<p>Suspendisse id sem consectetuer libero luctus adipiscing.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span>   <span class="n">Item</span> <span class="n">de</span> <span class="n">lista</span> <span class="n">com</span> <span class="n">dois</span> <span class="n">parágrafos</span><span class="p">.</span>
+
+    <span class="n">Segundo</span> <span class="n">parágrafo</span> <span class="k">do</span> <span class="n">item</span><span class="p">.</span> <span class="n">Só</span>
+<span class="err">é</span> <span class="n">necessário</span> <span class="n">identar</span> <span class="n">a</span> <span class="n">primeira</span> <span class="n">linha</span><span class="p">.</span> <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span>
+<span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consectetuer</span> <span class="n">adipiscing</span> <span class="n">elit</span><span class="p">.</span>
+
+<span class="o">*</span>   <span class="n">Outro</span> <span class="n">item</span> <span class="n">da</span> <span class="n">lista</span><span class="p">.</span>
+</code></pre></div>
+</li>
+<li>
+<p>Item de lista com dois parágrafos.</p>
+<p>Segundo parágrafo do item. Só
+é necessário identar a primeira linha. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.</p>
+</li>
+<li>
+<p>Outro item da lista.</p>
+</li>
+</ol>
+<p>É possível indicar uma lista ordenada por acidente, escrevendo algo como isso:</p>
+<div class="highlight"><pre><span></span><code><span class="err">1986. Que grande temporada.</span>
+</code></pre></div>
+<ol>
+<li>Que grande temporada.</li>
+</ol>
+<p>Em outras palavras, uma sequência número-ponto-espaço no começo de uma linha.
+Para evitar isso, você pode "escapar" o ponto(.) com a barra invertida:</p>
+<div class="highlight"><pre><span></span><code><span class="err">1986\. Que grande temporada.</span>
+</code></pre></div>
+<p>1986. Que grande temporada.</p>
+<h4>BLOCOS DE CÓDIGO</h4>
+<p>Para produzir um bloco de código, simplesmente idente cada linha do bloco com,
+pelo menos, 4 espaços ou 1 tabulação:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Parágrafo</span> <span class="n">normal</span><span class="p">.</span>
+
+    <span class="n">Bloco</span> <span class="n">de</span> <span class="n">código</span><span class="p">.</span>
+</code></pre></div>
+<p>Markdown vai gerar:</p>
+<p>Parágrafo normal.</p>
+<div class="highlight"><pre><span></span><code><span class="err">Bloco de código.</span>
+</code></pre></div>
+<p>Exemplo com Python:</p>
+<div class="highlight"><pre><span></span><code><span class="n">def</span> <span class="n">teste</span><span class="p">():</span>
+    <span class="k">return</span> <span class="ss">"Hello PUG!"</span>
+
+<span class="n">teste</span><span class="p">()</span>
+</code></pre></div>
+<p>Um bloco de código continua até atingir uma linha que não está identada.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"footer"</span><span class="nt">&gt;</span>
+    <span class="ni">&amp;copy;</span> 2004 Foo Corporation
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Sintaxe regular do Markdown não é processada dentro de blocos de código.</p>
+<h4>RÉGUAS HORIZONTAIS (HR)</h4>
+<p>É possível produzir uma régua horizontal colocando três ou mais hífens,
+asteriscos ou sublinhados numa linha.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
+
+<span class="o">***</span>
+
+<span class="o">*****</span>
+
+<span class="o">-</span> <span class="o">-</span> <span class="o">-</span>
+
+<span class="c1">---------------------------------------</span>
+</code></pre></div>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<h4>LINKS</h4>
+<p>Markdown suporta dois estilos de links: inline e reference.</p>
+<p>Em ambos, o texto do link é delimitado por [colchetes].</p>
+<p>Para criar um link "inline", use um conjunto de parêntesis imediatamente após
+o colchete que finaliza o texto do link. Dentro dos parêntesis, coloque a URL,
+com um título opcional para o link, esntre aspas. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Este</span> <span class="err">é</span> <span class="p">[</span><span class="n">um</span> <span class="n">exemplo</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.com/ "Título") de link inline.</span>
+
+<span class="p">[</span><span class="n">Este</span> <span class="n">link</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.net/) não tem o atributo título.</span>
+</code></pre></div>
+<p>Este é <a href="http://example.com/" title="Título">um exemplo</a> de link inline.</p>
+<p><a href="http://example.net/">Este link</a> não tem o atributo título.</p>
+<p>Podem ser usados caminhos relativos:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Veja</span><span class="w"> </span><span class="n">minha</span><span class="w"> </span><span class="n">página</span><span class="w"> </span><span class="o">[</span><span class="n">Sobre</span><span class="o">]</span><span class="p">(</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="p">)</span><span class="w"> </span><span class="n">para</span><span class="w"> </span><span class="n">detalhes</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+<p>Veja minha página <a href="/about/">Sobre</a> para detalhes.</p>
+<p>Links estilo "reference" usam um segundo conjunto de colchetes, dentro dos quais
+colocamos um "label" de nossa escolha para identificar o link:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Isto</span> <span class="err">é</span> <span class="p">[</span><span class="n">um</span> <span class="n">exemplo</span><span class="p">][</span><span class="kt">id</span><span class="p">]</span> <span class="n">de</span> <span class="n">link</span> <span class="n">estilo</span> <span class="s">"reference"</span><span class="p">.</span>
+</code></pre></div>
+<p>Isto é <a href="http://example.com/" title="Título Opcional aqui">um exemplo</a> de link estilo "reference".</p>
+<p>Pode-se, opcionalmente, usar um espaço para separar os conjuntos de colchetes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Este</span> <span class="err">é</span> <span class="p">[</span><span class="n">um</span> <span class="n">exemplo</span><span class="p">]</span> <span class="p">[</span><span class="kt">id</span><span class="p">]</span> <span class="n">de</span> <span class="n">link</span> <span class="n">estilo</span> <span class="s">"reference"</span><span class="p">.</span>
+</code></pre></div>
+<p>Este é <a href="http://example.com/" title="Título Opcional aqui">um exemplo</a> de link estilo "reference".</p>
+<p>Então, em qualquer lugar do documento, você define o "label" do seu link assim:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">id</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="w">  </span><span class="ss">"Título Opcional aqui"</span><span class="w"></span>
+</code></pre></div>
+<h4>ÊNFASE</h4>
+<p>Asteriscos (*) e sublinhados (_) são indicadores de ênfase.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="n">um</span> <span class="n">asterisco</span><span class="o">*</span>
+
+<span class="n">_um</span> <span class="n">sublinhado_</span>
+
+<span class="o">**</span><span class="n">dois</span> <span class="n">asteriscos</span><span class="o">**</span>
+
+<span class="n">__dois</span> <span class="n">sublinhados__</span>
+</code></pre></div>
+<p>produzirão:</p>
+<p><em>um asterisco</em></p>
+<p><em>um sublinhado</em></p>
+<p><strong>dois asteriscos</strong></p>
+<p><strong>dois sublinhados</strong></p>
+<h4>CÓDIGO</h4>
+<p>Para indicar um trecho de código use (`). </p>
+<p>Pode-se inserir código num parágrfo normal.</p>
+<div class="highlight"><pre><span></span><code><span class="err">Use a função `printf()` para imprimir em Python.</span>
+</code></pre></div>
+<p>produzirá:</p>
+<p>Use a função <code>printf()</code> para imprimir em Python.</p>
+<p>Pode-se inserir um trecho de código.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="n">raio</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">raio</span> <span class="o">*</span> <span class="n">raio</span>
+</code></pre></div>
+<p>produzirá:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="n">raio</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">raio</span> <span class="o">*</span> <span class="n">raio</span>
+</code></pre></div>
+<h4>IMAGENS</h4>
+<p>Markdown usa para imagesn uma sintaxe parecida com a de links:</p>
+<p>Imagens com sintaxe "inline" são assim:</p>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">](</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">img</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">](</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">img</span><span class="p">.</span><span class="n">jpg</span> <span class="s">"Título opcional"</span><span class="p">)</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">][</span><span class="kt">id</span><span class="p">]</span>
+
+<span class="p">[</span><span class="kt">id</span><span class="p">]</span><span class="o">:</span> <span class="n">url</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span>  <span class="s">"Título opcional"</span>
+</code></pre></div>
+<h4>LINKS AUTOMÁTICOS</h4>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;http://example.com/&gt;</span>
+</code></pre></div>
+<p><a href="http://example.com/">http://example.com/</a></p>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;address@example.com&gt;</span>
+</code></pre></div>
+<p><a href="mailto:address@example.com">address@example.com</a></p>
+<h4>CARACTERE DE ESCAPE</h4>
+<p>Markdown permite usar a contra-barra para gerar caracteres literais:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\*como o \* faz parte da marcação, é necessário colocar a contra-barra (\\) antes do \*</span>
+</code></pre></div>
+<p>*como o * faz parte da marcação, é necessário colocar a contra-barra (\) antes do *</p>
+<p>Use a contra-barra se quiser colocar algum desses caracteres no texto:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\\</span>
+<span class="err">\`</span>
+<span class="err">\*</span>
+<span class="err">\_</span>
+<span class="err">\{\}</span>
+<span class="err">\[\]</span>
+<span class="err">\(\)</span>
+<span class="err">\#</span>
+<span class="err">\+</span>
+<span class="err">\-</span>
+<span class="err">\.</span>
+<span class="err">\!</span>
+</code></pre></div>
+<p>\
+`
+*
+_
+{}
+[]
+()
+#
++
+-
+.
+!</p></body></html>
+            </div>
+            <div class="article-tags">
+                <span class="icon"><i title="Tags do artigo"
+                                      class="fa fa-tags"></i></i></span>
+                <span class="pill red lighten-2"><a
+                        class="white-text" href="../../blog/tags/tutorial"
+                        title="Tag 'tutorial'">tutorial</a></span>
+                <span class="pill red lighten-2"><a
+                        class="white-text" href="../../blog/tags/markdown"
+                        title="Tag 'markdown'">markdown</a></span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+            <!-- Footer -->
+<footer class="page-footer red darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sobre</h5>
+                <p class="grey-text text-lighten-4">
+                    O PUG-PB é uma comunidade de usuários (profissionais e
+                      amadores) da linguagem Python, onde prezamos pela troca de
+                      conhecimento, respeito mútuo e diversidade (tanto de 
+                      opinião quanto de tecnologias).
+                </p>
+
+
+            </div>
+            <div class="col l3 offset-l3 s12">
+                <h5 class="white-text">Social</h5>
+                <ul class="social-links">
+                    <li>
+                        <a class="white-text" href="https://t.me/pugpb"
+                           title="Telegram">
+                            <i class="fa fa-paper-plane"></i> Telegram
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/pug-pb"
+                           title="GitHub">
+                            <i class="fa fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://twitter.com/pug_pb"
+                           title="Twitter">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/pug-pb"
+                           title="Facebook">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://groups.google.com/forum/#!forum/pug-pb"
+                           title="Mailing List">
+                            <i class="fa fa-envelope"></i> Mailing List
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright red darken-4">
+        <div class="container">
+            Feito com
+            <a class="orange-text text-lighten-3"
+               href="http://materializecss.com">Materialize</a>,
+            <a class="orange-text text-lighten-3"
+               href="https://github.com/getpelican/pelican">Pelican</a>,
+            <a class="orange-text text-lighten-3" href="https://python.org/">Python</a>
+            e
+            <a class="orange-text text-lighten-3"
+               href="http://jetbrains.com/pycharm">PyCharm CE</a>.
+        </div>
+    </div>
+</footer>
+            <!-- Scripts -->
+            <script src="../../theme/js/jquery-2.1.1.min.js"></script>
+            <script src="../../theme/js/materialize.min.js"></script>
+            <script src="../../theme/js/parallax.js"></script>
+            <script src="../../theme/js/init.js"></script>
+        </main>
+    </body>
+</html>

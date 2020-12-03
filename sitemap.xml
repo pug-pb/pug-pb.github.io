@@ -5,44 +5,51 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://pb.python.org.br/</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/archives.html</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/comunidade</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/eventos</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/index</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/membros</loc>
-<lastmod>2020-05-23T15:33:34-00:00</lastmod>
+<lastmod>2020-12-03T18:41:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://pb.python.org.br/blog/meetup-virtual-2020</loc>
+<lastmod>2020-06-01T15:00:00-03:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
 </url>
 
 <url>
@@ -117,21 +124,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://pb.python.org.br/blog/categorias/evento</loc>
-<lastmod>2017-12-02T15:00:00-02:20</lastmod>
+<lastmod>2020-06-01T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/blog/tags/pug-pb</loc>
-<lastmod>2018-11-30T10:00:00-02:20</lastmod>
+<lastmod>2020-06-01T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/blog/tags/blog</loc>
-<lastmod>2018-11-30T10:00:00-02:20</lastmod>
+<lastmod>2020-06-01T15:00:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
+<loc>https://pb.python.org.br/blog/tags/evento</loc>
+<lastmod>2020-06-01T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
@@ -153,13 +167,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://pb.python.org.br/blog/tags/pelican</loc>
 <lastmod>2018-11-30T10:00:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>https://pb.python.org.br/blog/tags/evento</loc>
-<lastmod>2017-12-02T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
@@ -235,14 +242,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://pb.python.org.br/blog/autores/eduardo-araujo</loc>
-<lastmod>2016-11-01T10:00:00-02:20</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.2</priority>
-</url>
-
-<url>
-<loc>https://pb.python.org.br/blog/autores/fernando</loc>
+<loc>https://pb.python.org.br/blog/autores/fernando-junior</loc>
 <lastmod>2017-12-02T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
@@ -250,13 +250,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://pb.python.org.br/blog/autores/hildeberto</loc>
-<lastmod>2018-11-30T10:00:00-02:20</lastmod>
+<lastmod>2020-06-01T15:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
-<loc>https://pb.python.org.br/blog/autores/newton</loc>
+<loc>https://pb.python.org.br/blog/autores/jorge-eduardo</loc>
+<lastmod>2016-11-01T10:00:00-02:20</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.2</priority>
+</url>
+
+<url>
+<loc>https://pb.python.org.br/blog/autores/newton-galiza</loc>
 <lastmod>2017-11-18T10:00:00-02:20</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>

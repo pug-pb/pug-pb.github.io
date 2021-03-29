@@ -13,10 +13,10 @@
 &lt;p&gt;Veremos um tutorial para aqueles que desconhecem o &lt;a href="https://docs.getpelican.com/en/stable/"&gt;Pelican&lt;/a&gt;. Mostraremos como criar o &lt;strong&gt;virtual env&lt;/strong&gt;, instalação das dependẽncias, criação do conteúdo, teste local e envio das modificações ao GitHub.&lt;/p&gt;
 &lt;p&gt;O Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), facilitando a publicação através do &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt;. Um site estático não precisa de nenhum servidor de aplicação (&lt;em&gt;backend&lt;/em&gt;) em execução. Ele é composto apenas de arquivos HTML, CSS e JavaScript. Todo o código é gerado pelo Pelican. Ganhamos em performance, hospedagem, segurança e versionamento.&lt;/p&gt;
 &lt;p&gt;Como este site receberá publicações de várias pessoas, resolvemos usar as &lt;em&gt;Pull Requests&lt;/em&gt; do GitHub para controlar os artigos que serão publicados. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do PUG-PB. Qualquer pessoa com uma conta no GitHub poderá solicitar um &lt;em&gt;Pull Request&lt;/em&gt; e ter seu conteúdo publicado.&lt;/p&gt;
-&lt;h3&gt;Obtendo Uma Cópia do Site&lt;/h3&gt;
-&lt;p&gt;Para obter uma cópia do site você vai precisar do Git na sua máquina e de uma conta no &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt;. Primeiramente acesse o &lt;a href="https://github.com/pug-pb/pug-pb-site"&gt;repositório do site&lt;/a&gt; e crie um fork para o seu usuário. Uma vez criado o fork, clone o site em um diretório qualquer da sua máquina (no exemplo está na raiz do usuário):&lt;/p&gt;
+&lt;h3&gt;Obtendo Uma Cópia dos Fontes do Site&lt;/h3&gt;
+&lt;p&gt;Para obter uma cópia dos fontes do site você vai precisar do Git na sua máquina e de uma conta no &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt;. Primeiramente acesse o &lt;a href="https://github.com/pug-pb/pug-pb-site"&gt;repositório do site&lt;/a&gt; e crie um fork para o seu usuário. Uma vez criado o fork, clone o site em um diretório qualquer da sua máquina (no exemplo está na raiz do usuário):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;cd&lt;/span&gt; ~
-    git clone https://github.com/nomedousuario/pug-pb-site.git
+    git clone https://github.com/&amp;lt;troque_pelo_nome_do_seu_usuario&amp;gt;/pug-pb-site.git
     &lt;span class="nb"&gt;cd&lt;/span&gt; pug-pb-site
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O repositório é composto de alguns diretórios principais:&lt;/p&gt;
@@ -37,22 +37,23 @@
 &lt;li&gt;Python 3.6 ou superior;&lt;/li&gt;
 &lt;li&gt;Conexão de internet;&lt;/li&gt;
 &lt;li&gt;Um terminal;&lt;/li&gt;
-&lt;li&gt;Um editor de texto;&lt;/li&gt;
+&lt;li&gt;Um editor de texto, preferencialmente com suporte a Markdown;&lt;/li&gt;
 &lt;li&gt;Um navegador;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Primeiro abra um terminal e crie um &lt;em&gt;virtual environment&lt;/em&gt; para o Python 3(note que este passo não é obrigatório, mas é uma boa prática):&lt;/p&gt;
+&lt;p&gt;Este tutorial é direcionado para o shell Linux. Se você utiliza Windows, os comandos são os mesmos, mas a indicação de diretórios é feita com a barra invertida ().&lt;/p&gt;
+&lt;p&gt;Uma vez clonado o repositório do site, abra um terminal e crie um &lt;em&gt;ambiente virtual&lt;/em&gt; para o Python 3 (note que este passo não é obrigatório, mas é uma boa prática):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;cd&lt;/span&gt; ~/pug-pb-site
     python3 -m venv pugpb_venv
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Você pode chamar seu &lt;em&gt;virtual env&lt;/em&gt; com qualquer nome que queira, e colocar em qualquer outra pasta. Uma vez criado este &lt;em&gt;virtual env&lt;/em&gt;, ative-o:&lt;/p&gt;
+&lt;p&gt;Você pode chamar seu &lt;em&gt;ambiente virtual&lt;/em&gt; com qualquer nome que queira, e colocar em qualquer outra pasta. Uma vez criado este &lt;em&gt;ambiente virtual&lt;/em&gt;, ative-o:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nb"&gt;source&lt;/span&gt; ~/pug-pb-site/pugpb_venv/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Uma vez ativado o &lt;em&gt;virtual env&lt;/em&gt; basta instalar todas as dependências. Para isso utilize o seguinte comando:&lt;/p&gt;
+&lt;p&gt;Uma vez ativado o &lt;em&gt;ambiente virtual&lt;/em&gt; basta instalar todas as dependências. Para isso utilize o seguinte comando:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    pip install -r requirements.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Após instaladas todas as dependências faça a geração de teste do site, com o comando &lt;code&gt;make html&lt;/code&gt;. É criado um diretório &lt;code&gt;output&lt;/code&gt;, com o conteúdo gerado. Este diretório já está no &lt;code&gt;.gitignore&lt;/code&gt; e não deverá entrar no seu &lt;em&gt;commit&lt;/em&gt;. Para visualizar o site &lt;strong&gt;localmente&lt;/strong&gt; rode o comando &lt;code&gt;make serve&lt;/code&gt; (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL &lt;a href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt;. Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo &lt;code&gt;Makefile&lt;/code&gt;. Para sair do "modo servidor" pressione &lt;code&gt;Ctrl+C&lt;/code&gt; e a linha de comando retornará ao normal.&lt;/p&gt;
+&lt;p&gt;Após instaladas todas as dependências, faça a geração de teste do site, com o comando &lt;code&gt;make html&lt;/code&gt;. É criado um diretório &lt;code&gt;output&lt;/code&gt;, com o conteúdo gerado. Este diretório já está no &lt;code&gt;.gitignore&lt;/code&gt; e não deverá entrar no seu &lt;em&gt;commit&lt;/em&gt;. Para visualizar o site &lt;strong&gt;localmente&lt;/strong&gt; rode o comando &lt;code&gt;make serve&lt;/code&gt; (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL &lt;a href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt;. Para sair do "modo servidor" pressione &lt;code&gt;Ctrl+C&lt;/code&gt; e a linha de comando retornará ao normal.&lt;/p&gt;
 &lt;p&gt;Após algum tempo de uso, é costume sempre executar uma cadeia de comandos para evitar que arquivos de compilações prévias interfiram com a visualização atual: &lt;code&gt;make clean html serve&lt;/code&gt;. Apenas esta linha de comando limpa o conteúdo do diretório &lt;code&gt;output&lt;/code&gt;, gera o site novamente, e entra no modo servidor. Novamente, para sair do &lt;em&gt;modo servidor&lt;/em&gt; pressione &lt;code&gt;Ctrl+C&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Se você estiver usando o Windows, em que não há o comando &lt;code&gt;make&lt;/code&gt;,  os comandos equivalentes seriam:&lt;/p&gt;
+&lt;p&gt;Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo &lt;code&gt;Makefile&lt;/code&gt;. Se você estiver usando Windows, em que não há o comando &lt;code&gt;make&lt;/code&gt;,  os comandos equivalentes seriam:&lt;/p&gt;
 &lt;p&gt;1) make clean: &lt;code&gt;del output&lt;/code&gt;
 2) make html: &lt;code&gt;pelican&lt;/code&gt;
 3) make serve: &lt;code&gt;pelican -l&lt;/code&gt;&lt;/p&gt;
@@ -66,12 +67,12 @@
 &lt;span class="err"&gt;    image: /images/monty-python-knights.jpg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Coloque o título do seu artigo, seguido da data de publicação (no formato &lt;code&gt;YYYY-MM-DD HH:MM&lt;/code&gt;). Logo abaixo temos o nome do autor, categoria e uma lista de tags. A palavra-chave &lt;code&gt;image&lt;/code&gt; faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo. A imagem deve ser colocada na pasta &lt;code&gt;content/images&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Após este cabeçalho fixo, basta escrever o texto de acordo com a linguagem de marcação. Uma vez concluído o artigo, teste a compilação novamente com o comando &lt;code&gt;make clean html serve&lt;/code&gt; e acesse a URL &lt;a href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt; para ver como ficou.&lt;/p&gt;
+&lt;p&gt;Após este cabeçalho fixo, basta escrever o texto de acordo com a linguagem de marcação. Uma vez concluído o artigo, teste a compilação novamente com o comando &lt;code&gt;make clean html serve&lt;/code&gt; e acesse a URL &lt;a href="http://localhost:8000/blog/index.html"&gt;http://localhost:8000/blog/index.html&lt;/a&gt; para ver como ficou. Os artigos mais recentes aparecem no início do blog.&lt;/p&gt;
 &lt;h3&gt;Enviando Sua Contribuição&lt;/h3&gt;
 &lt;p&gt;Uma vez concluído o artigo, vamos realizar o &lt;em&gt;commit&lt;/em&gt; da alteração:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    git add content/article/meu-artigo.md
-    git add content/images/minha-imagem-do-artigo.png
-    git commit -m &lt;span class="s2"&gt;"Adicionado novo artivo 'meu-artigo'"&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    git add content/article/&amp;lt;substitua-pelo-nome-do-seu-artigo.md&amp;gt;
+    git add content/images/&amp;lt;substitua-pelo-nome-da-sua-imagem-do-artigo.png&amp;gt;
+    git commit -m &lt;span class="s2"&gt;"Adicionado novo artivo '&amp;lt;substitua pelo nome descritivo do seu artigo&amp;gt;'"&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Com o &lt;em&gt;commit&lt;/em&gt; realizado com sucesso, você pode realizar o push pro seu repositório remoto (GitHub):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    git push origin master

@@ -193,10 +193,10 @@
 <p>Veremos um tutorial para aqueles que desconhecem o <a href="https://docs.getpelican.com/en/stable/">Pelican</a>. Mostraremos como criar o <strong>virtual env</strong>, instalação das dependẽncias, criação do conteúdo, teste local e envio das modificações ao GitHub.</p>
 <p>O Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), facilitando a publicação através do <a href="https://pages.github.com/">GitHub Pages</a>. Um site estático não precisa de nenhum servidor de aplicação (<em>backend</em>) em execução. Ele é composto apenas de arquivos HTML, CSS e JavaScript. Todo o código é gerado pelo Pelican. Ganhamos em performance, hospedagem, segurança e versionamento.</p>
 <p>Como este site receberá publicações de várias pessoas, resolvemos usar as <em>Pull Requests</em> do GitHub para controlar os artigos que serão publicados. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do PUG-PB. Qualquer pessoa com uma conta no GitHub poderá solicitar um <em>Pull Request</em> e ter seu conteúdo publicado.</p>
-<h3>Obtendo Uma Cópia do Site</h3>
-<p>Para obter uma cópia do site você vai precisar do Git na sua máquina e de uma conta no <a href="https://github.com/">GitHub</a>. Primeiramente acesse o <a href="https://github.com/pug-pb/pug-pb-site">repositório do site</a> e crie um fork para o seu usuário. Uma vez criado o fork, clone o site em um diretório qualquer da sua máquina (no exemplo está na raiz do usuário):</p>
+<h3>Obtendo Uma Cópia dos Fontes do Site</h3>
+<p>Para obter uma cópia dos fontes do site você vai precisar do Git na sua máquina e de uma conta no <a href="https://github.com/">GitHub</a>. Primeiramente acesse o <a href="https://github.com/pug-pb/pug-pb-site">repositório do site</a> e crie um fork para o seu usuário. Uma vez criado o fork, clone o site em um diretório qualquer da sua máquina (no exemplo está na raiz do usuário):</p>
 <div class="highlight"><pre><span></span><code>    <span class="nb">cd</span> ~
-    git clone https://github.com/nomedousuario/pug-pb-site.git
+    git clone https://github.com/&lt;troque_pelo_nome_do_seu_usuario&gt;/pug-pb-site.git
     <span class="nb">cd</span> pug-pb-site
 </code></pre></div>
 <p>O repositório é composto de alguns diretórios principais:</p>
@@ -217,22 +217,23 @@
 <li>Python 3.6 ou superior;</li>
 <li>Conexão de internet;</li>
 <li>Um terminal;</li>
-<li>Um editor de texto;</li>
+<li>Um editor de texto, preferencialmente com suporte a Markdown;</li>
 <li>Um navegador;</li>
 </ul>
-<p>Primeiro abra um terminal e crie um <em>virtual environment</em> para o Python 3(note que este passo não é obrigatório, mas é uma boa prática):</p>
+<p>Este tutorial é direcionado para o shell Linux. Se você utiliza Windows, os comandos são os mesmos, mas a indicação de diretórios é feita com a barra invertida ().</p>
+<p>Uma vez clonado o repositório do site, abra um terminal e crie um <em>ambiente virtual</em> para o Python 3 (note que este passo não é obrigatório, mas é uma boa prática):</p>
 <div class="highlight"><pre><span></span><code>    <span class="nb">cd</span> ~/pug-pb-site
     python3 -m venv pugpb_venv
 </code></pre></div>
-<p>Você pode chamar seu <em>virtual env</em> com qualquer nome que queira, e colocar em qualquer outra pasta. Uma vez criado este <em>virtual env</em>, ative-o:</p>
+<p>Você pode chamar seu <em>ambiente virtual</em> com qualquer nome que queira, e colocar em qualquer outra pasta. Uma vez criado este <em>ambiente virtual</em>, ative-o:</p>
 <div class="highlight"><pre><span></span><code>    <span class="nb">source</span> ~/pug-pb-site/pugpb_venv/bin/activate
 </code></pre></div>
-<p>Uma vez ativado o <em>virtual env</em> basta instalar todas as dependências. Para isso utilize o seguinte comando:</p>
+<p>Uma vez ativado o <em>ambiente virtual</em> basta instalar todas as dependências. Para isso utilize o seguinte comando:</p>
 <div class="highlight"><pre><span></span><code>    pip install -r requirements.txt
 </code></pre></div>
-<p>Após instaladas todas as dependências faça a geração de teste do site, com o comando <code>make html</code>. É criado um diretório <code>output</code>, com o conteúdo gerado. Este diretório já está no <code>.gitignore</code> e não deverá entrar no seu <em>commit</em>. Para visualizar o site <strong>localmente</strong> rode o comando <code>make serve</code> (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL <a href="http://localhost:8000">http://localhost:8000</a>. Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo <code>Makefile</code>. Para sair do "modo servidor" pressione <code>Ctrl+C</code> e a linha de comando retornará ao normal.</p>
+<p>Após instaladas todas as dependências, faça a geração de teste do site, com o comando <code>make html</code>. É criado um diretório <code>output</code>, com o conteúdo gerado. Este diretório já está no <code>.gitignore</code> e não deverá entrar no seu <em>commit</em>. Para visualizar o site <strong>localmente</strong> rode o comando <code>make serve</code> (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL <a href="http://localhost:8000">http://localhost:8000</a>. Para sair do "modo servidor" pressione <code>Ctrl+C</code> e a linha de comando retornará ao normal.</p>
 <p>Após algum tempo de uso, é costume sempre executar uma cadeia de comandos para evitar que arquivos de compilações prévias interfiram com a visualização atual: <code>make clean html serve</code>. Apenas esta linha de comando limpa o conteúdo do diretório <code>output</code>, gera o site novamente, e entra no modo servidor. Novamente, para sair do <em>modo servidor</em> pressione <code>Ctrl+C</code>.</p>
-<p>Se você estiver usando o Windows, em que não há o comando <code>make</code>,  os comandos equivalentes seriam:</p>
+<p>Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo <code>Makefile</code>. Se você estiver usando Windows, em que não há o comando <code>make</code>,  os comandos equivalentes seriam:</p>
 <p>1) make clean: <code>del output</code>
 2) make html: <code>pelican</code>
 3) make serve: <code>pelican -l</code></p>
@@ -246,12 +247,12 @@
 <span class="err">    image: /images/monty-python-knights.jpg</span>
 </code></pre></div>
 <p>Coloque o título do seu artigo, seguido da data de publicação (no formato <code>YYYY-MM-DD HH:MM</code>). Logo abaixo temos o nome do autor, categoria e uma lista de tags. A palavra-chave <code>image</code> faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo. A imagem deve ser colocada na pasta <code>content/images</code>.</p>
-<p>Após este cabeçalho fixo, basta escrever o texto de acordo com a linguagem de marcação. Uma vez concluído o artigo, teste a compilação novamente com o comando <code>make clean html serve</code> e acesse a URL <a href="http://localhost:8000">http://localhost:8000</a> para ver como ficou.</p>
+<p>Após este cabeçalho fixo, basta escrever o texto de acordo com a linguagem de marcação. Uma vez concluído o artigo, teste a compilação novamente com o comando <code>make clean html serve</code> e acesse a URL <a href="http://localhost:8000/blog/index.html">http://localhost:8000/blog/index.html</a> para ver como ficou. Os artigos mais recentes aparecem no início do blog.</p>
 <h3>Enviando Sua Contribuição</h3>
 <p>Uma vez concluído o artigo, vamos realizar o <em>commit</em> da alteração:</p>
-<div class="highlight"><pre><span></span><code>    git add content/article/meu-artigo.md
-    git add content/images/minha-imagem-do-artigo.png
-    git commit -m <span class="s2">"Adicionado novo artivo 'meu-artigo'"</span>
+<div class="highlight"><pre><span></span><code>    git add content/article/&lt;substitua-pelo-nome-do-seu-artigo.md&gt;
+    git add content/images/&lt;substitua-pelo-nome-da-sua-imagem-do-artigo.png&gt;
+    git commit -m <span class="s2">"Adicionado novo artivo '&lt;substitua pelo nome descritivo do seu artigo&gt;'"</span>
 </code></pre></div>
 <p>Com o <em>commit</em> realizado com sucesso, você pode realizar o push pro seu repositório remoto (GitHub):</p>
 <div class="highlight"><pre><span></span><code>    git push origin master

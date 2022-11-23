@@ -5,56 +5,56 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://pb.python.org.br/</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/blog/tags</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/blog/categorias</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/blog/autores</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.2</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/comunidade</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/eventos</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/index</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://pb.python.org.br/membros</loc>
-<lastmod>2022-11-11T12:03:30-00:00</lastmod>
+<lastmod>2022-11-23T20:11:41-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
